@@ -11,7 +11,7 @@
 - Easy to extend with new commands
 
 ## Project Structure
-winux/
+```
 commands/
 cat.cs
 mkdir.cs
@@ -29,6 +29,7 @@ commandDispatcher.cs
 iCommand.cs
 Program.cs
 winux.csproj
+```
 
 ## Getting Started
 
