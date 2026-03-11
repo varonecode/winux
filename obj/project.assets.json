@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\polar\\Desktop\\Workspace\\projects\\winux\\winux\\winux.csproj",
+      "projectUniqueName": "C:\\Users\\polar\\Desktop\\Workspace\\projects\\winux\\winux.csproj",
       "projectName": "winux",
-      "projectPath": "C:\\Users\\polar\\Desktop\\Workspace\\projects\\winux\\winux\\winux.csproj",
+      "projectPath": "C:\\Users\\polar\\Desktop\\Workspace\\projects\\winux\\winux.csproj",
       "packagesPath": "C:\\Users\\polar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\polar\\Desktop\\Workspace\\projects\\winux\\winux\\obj\\",
+      "outputPath": "C:\\Users\\polar\\Desktop\\Workspace\\projects\\winux\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\polar\\AppData\\Roaming\\NuGet\\NuGet.Config"

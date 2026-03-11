@@ -1,0 +1,15 @@
+C:\Users\polar\Desktop\Workspace\projects\winux\bin\Debug\net8.0\winux.exe
+C:\Users\polar\Desktop\Workspace\projects\winux\bin\Debug\net8.0\winux.deps.json
+C:\Users\polar\Desktop\Workspace\projects\winux\bin\Debug\net8.0\winux.runtimeconfig.json
+C:\Users\polar\Desktop\Workspace\projects\winux\bin\Debug\net8.0\winux.dll
+C:\Users\polar\Desktop\Workspace\projects\winux\bin\Debug\net8.0\winux.pdb
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\winux.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\winux.AssemblyInfoInputs.cache
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\winux.AssemblyInfo.cs
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\winux.csproj.CoreCompileInputs.cache
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\winux.sourcelink.json
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\winux.dll
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\refint\winux.dll
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\winux.pdb
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\winux.genruntimeconfig.cache
+C:\Users\polar\Desktop\Workspace\projects\winux\obj\Debug\net8.0\ref\winux.dll
