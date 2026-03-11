@@ -11,7 +11,21 @@ namespace Winux.Commands
 
         public void Execute(string[] args)
         {
-            string path = args.Length > 0 ? args[0] : Directory.GetCurrentDirectory();
+            string path = Directory.GetCurrentDirectory();
+            bool longFormat = false;
+
+            // Parse flags
+            foreach (var arg in args)
+            {
+                if (arg.StartsWith("-"))
+                {
+                    if (arg.Contains("l")) longFormat = true;
+                }
+                else
+                {
+                    path = arg;
+                }
+            }
 
             if (!Directory.Exists(path))
             {
@@ -21,7 +35,21 @@ namespace Winux.Commands
 
             foreach (var entry in Directory.GetFileSystemEntries(path))
             {
-                Console.WriteLine(entry);
+                var info = new FileInfo(entry);
+                bool isDir = Directory.Exists(entry);
+
+                if (longFormat)
+                {
+                    string type = isDir ? "d" : "-";
+                    string size = isDir ? "<DIR>" : info.Length.ToString();
+                    Console.Write($"{type}\t{size}\t");
+                }
+
+                if (isDir) Console.ForegroundColor = ConsoleColor.Cyan;
+                else Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine(Path.GetFileName(entry));
+                Console.ResetColor();
             }
         }
     }
