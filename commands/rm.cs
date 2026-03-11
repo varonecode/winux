@@ -13,25 +13,54 @@ namespace Winux.Commands
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("Usage: rm <file_or_directory>");
+                Console.WriteLine("Usage: rm [-r] [-f] <file_or_directory>");
                 return;
             }
 
-            string path = args[0];
+            bool recursive = false;
+            bool force = false;
+            string path = "";
 
-            if (File.Exists(path))
+            foreach (var arg in args)
             {
-                File.Delete(path);
-                Console.WriteLine($"Deleted file: {path}");
+                if (arg.StartsWith("-"))
+                {
+                    if (arg.Contains("r")) recursive = true;
+                    if (arg.Contains("f")) force = true;
+                }
+                else
+                {
+                    path = arg;
+                }
             }
-            else if (Directory.Exists(path))
+
+            try
             {
-                Directory.Delete(path, true);
-                Console.WriteLine($"Deleted directory: {path}");
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                    Console.WriteLine($"Deleted file: {path}");
+                }
+                else if (Directory.Exists(path))
+                {
+                    if (recursive)
+                    {
+                        Directory.Delete(path, true);
+                        Console.WriteLine($"Deleted directory recursively: {path}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Directory exists: {path}. Use -r to delete recursively.");
+                    }
+                }
+                else if (!force)
+                {
+                    Console.WriteLine($"File or directory not found: {path}");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine($"File or directory not found: {path}");
+                Console.WriteLine($"Error deleting '{path}': {ex.Message}");
             }
         }
     }
