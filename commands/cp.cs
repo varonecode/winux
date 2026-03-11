@@ -13,21 +13,33 @@ namespace Winux.Commands
         {
             if (args.Length < 2)
             {
-                Console.WriteLine("Usage: cp <source> <destination>");
+                Console.WriteLine("Usage: cp [-f] <source> <destination>");
                 return;
             }
 
-            string source = args[0];
-            string dest = args[1];
+            bool overwrite = false;
+            string source = "";
+            string dest = "";
+
+            foreach (var arg in args)
+            {
+                if (arg.StartsWith("-") && arg.Contains("f")) overwrite = true;
+                else if (string.IsNullOrEmpty(source)) source = arg;
+                else dest = arg;
+            }
 
             if (!File.Exists(source))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Source file not found: {source}");
+                Console.ResetColor();
                 return;
             }
 
-            File.Copy(source, dest, true);
+            File.Copy(source, dest, overwrite);
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Copied '{source}' to '{dest}'");
+            Console.ResetColor();
         }
     }
 }
