@@ -10,7 +10,7 @@ namespace Winux
         {
             var dispatcher = new CommandDispatcher();
 
-            // Register all commands
+            
             dispatcher.RegisterCommand(new Whoami());
             dispatcher.RegisterCommand(new Cat());
             dispatcher.RegisterCommand(new Touch());
