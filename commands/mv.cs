@@ -13,28 +13,61 @@ namespace Winux.Commands
         {
             if (args.Length < 2)
             {
-                Console.WriteLine("Usage: mv <source> <destination>");
+                Console.WriteLine("Usage: mv [-f] <source> <destination>");
                 return;
             }
 
-            string source = args[0];
-            string dest = args[1];
+            bool overwrite = false;
+            string source = "";
+            string dest = "";
 
-            if (!File.Exists(source) && !Directory.Exists(source))
+            foreach (var arg in args)
             {
-                Console.WriteLine($"Source not found: {source}");
-                return;
+                if (arg.StartsWith("-") && arg.Contains("f")) overwrite = true;
+                else if (string.IsNullOrEmpty(source)) source = arg;
+                else dest = arg;
             }
 
-            if (File.Exists(source))
+            try
             {
-                File.Move(source, dest, true);
-                Console.WriteLine($"Moved file '{source}' to '{dest}'");
+                if (File.Exists(dest) || Directory.Exists(dest))
+                {
+                    if (!overwrite)
+                    {
+                        Console.WriteLine($"Destination exists: {dest}. Use -f to overwrite.");
+                        return;
+                    }
+
+                    if (File.Exists(dest)) File.Delete(dest);
+                    else Directory.Delete(dest, true);
+                }
+
+                if (File.Exists(source))
+                {
+                    File.Move(source, dest);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Moved file '{source}' to '{dest}'");
+                    Console.ResetColor();
+                }
+                else if (Directory.Exists(source))
+                {
+                    Directory.Move(source, dest);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine($"Moved directory '{source}' to '{dest}'");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Source not found: {source}");
+                    Console.ResetColor();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Directory.Move(source, dest);
-                Console.WriteLine($"Moved directory '{source}' to '{dest}'");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Error moving '{source}' to '{dest}': {ex.Message}");
+                Console.ResetColor();
             }
         }
     }
