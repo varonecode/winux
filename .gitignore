@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+publish/
+
+# Rider, VS, VS Code
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/
+
+# Dotnet
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# NuGet
+*.nupkg

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("winux")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28219dd251c5ef4d550955b72f6c5c94eb69fd20")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3470e84c06ee83906af20598d1b57e2b68a534db")]
 [assembly: System.Reflection.AssemblyProductAttribute("winux")]
 [assembly: System.Reflection.AssemblyTitleAttribute("winux")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
